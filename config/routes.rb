@@ -12,5 +12,12 @@ Rails.application.routes.draw do
   get 'products/shuttles' => "products#shuttles"
   get 'products/clothes' => "products#clothes"
   resources :products
+
+  get '/cart' => 'cart#index'
+  get '/cart/checkout' => 'cart#checkout'
+  get '/cart/clear' => 'cart#clearCart'
+  get '/cart/:id' => 'cart#add', as: :add_cart
+  get '/cart/remove/:id' => 'cart#remove', as: :remove_cart
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

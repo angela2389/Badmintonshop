@@ -1,0 +1,27 @@
+<h1>Your Order</h1>
+
+<p> You have succesfully ordered: </p>
+<% totalprice = 0 %>
+<% @cart.each do |k, v| %>
+
+<% Product.find([k]).pluck(:name).join(" ") %>
+<% @c = Product.find([k]).pluck(:id).join(" ") %>
+<% @p = Product.find([k]).pluck(:price).join(" ") %>
+<% @q = v %>
+<% Orderitem.create(order: @order, product_id: @c, quantity: @q, subtotal: @p) %>
+Ordered items: <%= Product.find([k]).pluck(:name).join(" ") %>
+<br>
+Quantity: <%= @q %>
+<br>
+Price: €<%= @subtotal = @p.to_i * @q %>
+<br>
+<br>
+<% totalprice = totalprice + @subtotal %>
+<% end %>
+<% @order.update_attributes( totalprice: totalprice ) %>
+
+<br>
+<b> Total price: € <%= totalprice %>
+<br>
+<br>
+Order id: <%= @order.id %></b>
