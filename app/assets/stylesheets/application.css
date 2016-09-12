@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: arial;
+}
+
+.productoverview {
+  display: flex;
+}
+
+.product {
+    border: 1px solid black;
+    flex: 1;
+}

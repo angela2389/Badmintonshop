@@ -7,6 +7,18 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def rackets
+    @products = Product.all
+  end
+
+  def shuttles
+    @products = Product.all
+  end
+
+  def clothes
+    @products = Product.all
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show

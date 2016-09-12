@@ -48,7 +48,7 @@ Product.create(
 
 Product.create(
   reference_number: 2440,
-  name: 'Shuttles',
+  name: 'Feather Shuttles',
   sub_header: "Nice looking feather shuttles",
   description: "Feathers",
   price: 25.50,
@@ -59,7 +59,7 @@ Product.create(
 
 Product.create(
   reference_number: 3440,
-  name: 'Shirt',
+  name: 'Blue shirt',
   sub_header: "Nice looking shirt",
   description: "One fit all",
   price: 59.99,
