@@ -5,9 +5,4 @@ class CategoriesController < ApplicationController
     @products = Product.all
   end
 
-  def show
-    @categories = Artist.find(params[:id])
-    @products = Product.all
-  end
-
 end
