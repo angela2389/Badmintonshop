@@ -18,6 +18,11 @@ body {
   font-family: arial;
 }
 
+.navbar ul li{
+  display: block;
+  float: right;
+}
+
 .productoverview {
   display: flex;
 }
