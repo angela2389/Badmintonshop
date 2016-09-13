@@ -2,14 +2,14 @@ class CartController < ApplicationController
   def add
     id = params[:id]
     # if the cart has already been created use the existing cart else create a new cart
-    if session[:cart] then
+    if session[:cart]
       cart = session[:cart]
     else session[:cart] = {}
       cart = session[:cart]
     end
     # if the product has already been added to the cart, increment the value. else set the value
-    if cart[id] then
-      cart[id] = cart[id] + 1
+    if cart[id]
+      cart[id] += 1
     else
       cart[id] = 1
     end
@@ -23,7 +23,7 @@ class CartController < ApplicationController
     if cart[id] == 1
       cart.delete(id)
     else
-      cart[id] = cart[id] - 1
+      cart[id] -= 1
     end
     redirect_to :action => :index
   end
@@ -35,7 +35,7 @@ class CartController < ApplicationController
 
   def index
     # if there is a cart, pass it to the page for display else pass an empty value
-    if session[:cart] then
+    if session[:cart]
       @cart = session[:cart]
     else
       @cart = {}
