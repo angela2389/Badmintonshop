@@ -33,7 +33,7 @@
   </div>
 
   <% if user_signed_in?%>
-    <%= link_to 'CheckOut', cart_checkout_path %>
+    <%= link_to 'CheckOut', new_order_path %>
   <% else %>
     <%= link_to "Log in to checkout", new_user_session_path %>
   <% end %>

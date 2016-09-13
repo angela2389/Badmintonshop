@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   #  }
  # end
   root 'categories#index'
+  resources :orders
 
   resources :categories
   get 'products/rackets' => "products#rackets"
@@ -14,10 +15,8 @@ Rails.application.routes.draw do
   resources :products
 
   get '/cart' => 'cart#index'
-  get '/cart/checkout' => 'cart#checkout'
   get '/cart/clear' => 'cart#clearCart'
   get '/cart/:id' => 'cart#add', as: :add_cart
   get '/cart/remove/:id' => 'cart#remove', as: :remove_cart
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
