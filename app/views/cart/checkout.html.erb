@@ -23,12 +23,12 @@
   <% end %>
   </table>
   <br>
-  <b>Total shopping cart:<%= number_to_currency(total, :unit => "€") %></b>
+  <b>Total shopping cart: <%= number_to_currency(total, :unit => "€") %></b>
   <br><br>
   <h3> Delivery Address: </h3>
-  <%= current_user.first_name %> <%= current_user.last_name %>
+  <%= current_user.first_name %> <%= current_user.last_name %> <br>
   <%= current_user.street %>
-  <%= current_user.house_number %>
-  <%= current_user.postal %>
-  <%= current_user.city %>
-  <%= current_user.country %>
+  <%= current_user.house_number %> <br>
+  <%= current_user.postal %> <br>
+  <%= current_user.city %> <br>
+  <%= current_user.country %> <br>
