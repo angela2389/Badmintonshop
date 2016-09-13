@@ -32,8 +32,8 @@
   <%= f.radio_button(:paymentmethod, "Bank transfer") %>
   <%= f.label(:paymentmethod, "Bank transfer") %><br>
   <%= f.radio_button(:paymentmethod, "Cash on delivery") %>
-  <%= f.label(:paymentmethod, "Cash on delivery") %> <br><br>
+  <%= f.label(:paymentmethod, "Cash on delivery") %>
 
-    Comments: <%= f.text_area :comments %><br><br>
+  <h3>Comments: </h3> <%= f.text_area :comments %><br><br>
     <%= f.submit "Finalize Order" %>
     <% end %>

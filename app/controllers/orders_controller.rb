@@ -34,10 +34,12 @@ class OrdersController < ApplicationController
       @order = Order.create(order_params)
       @order.user = current_user
       @order.status = "In progress"
+      @order.total_price = 0.00
 
       @cart.each do | id, quantity|
         @product = Product.find(id)
         @order.orderitems.new(product_id: id, quantity: quantity, subtotal: quantity * @product.price)
+        @order.total_price = @order.total_price + quantity * @product.price
       end
 
       respond_to do |format|
