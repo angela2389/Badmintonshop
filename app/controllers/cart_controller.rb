@@ -42,4 +42,7 @@ class CartController < ApplicationController
     end
   end
 
+  def checkout
+    @cart = session[:cart]
+  end
 end

@@ -65,3 +65,30 @@ a{
 .product img{
     max-width: 290px;
 }
+
+.checkout {
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 150px;
+  background-color: #00B900;
+  padding: 5px;
+  text-align: center;
+}
+
+.checkout a{
+  color: #000000;
+  font-size: 15px;
+}
+
+input[type="submit"]{
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 150px;
+  background-color: #00B900;
+  padding: 5px;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+}

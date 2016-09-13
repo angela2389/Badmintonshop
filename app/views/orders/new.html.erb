@@ -26,23 +26,14 @@
   <b>Total shopping cart: <%= number_to_currency(total, :unit => "€") %></b>
   <br><br>
 
-  <h3> Delivery Address: </h3>
-  <%= current_user.first_name %> <%= current_user.last_name %> <br>
-  <%= current_user.street %>
-  <%= current_user.house_number %> <br>
-  <%= current_user.postal %> <br>
-  <%= current_user.city %> <br>
-  <%= current_user.country %> <br><br>
-
-  <%= link_to "Update address", edit_user_registration_path %>
   <%= form_for(@order) do |f| %>
 
   <h3> Choose your payment method: </h3>
   <%= f.radio_button(:paymentmethod, "Bank transfer") %>
   <%= f.label(:paymentmethod, "Bank transfer") %><br>
   <%= f.radio_button(:paymentmethod, "Cash on delivery") %>
-  <%= f.label(:paymentmethod, "Cash on delivery") %> <br>
+  <%= f.label(:paymentmethod, "Cash on delivery") %> <br><br>
 
-    Comments: <%= f.text_area :comments %>
-    <%= f.submit %>
+    Comments: <%= f.text_area :comments %><br><br>
+    <%= f.submit "Finalize Order" %>
     <% end %>

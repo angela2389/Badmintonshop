@@ -36,7 +36,8 @@ class OrdersController < ApplicationController
       @order.status = "In progress"
 
       @cart.each do | id, quantity|
-      @order.orderitems.new(product_id: id, quantity: quantity)
+        @product = Product.find(id)
+        @order.orderitems.new(product_id: id, quantity: quantity, subtotal: quantity * @product.price)
       end
 
       respond_to do |format|

@@ -1,7 +1,4 @@
-<div class="cart-total">
-<h1>Cart page</h1>
-<%= link_to 'Empty the Cart', cart_clear_path %>
-<br><br><br>
+<h2> Checkout </h2>
 
 <% total = 0 %>
 
@@ -18,8 +15,7 @@
   <tr>
     <td><%= product.name %></td>
     <td><%= number_to_currency(product.price, :unit => "€") %></td>
-    <td><%= link_to "-", remove_cart_path(product) %>
-    <%= quantity %><%= link_to "+", add_cart_path(product) %> </td>
+    <td><%= quantity %> </td>
     <% subtotal = quantity * product.price %>
     <td><%=number_to_currency(subtotal, :unit => "€") %></td>
   </tr>
@@ -27,13 +23,21 @@
   <% end %>
   </table>
   <br>
-  <b>Total shopping cart:<%= number_to_currency(total, :unit => "€") %></b>
+  <b>Total shopping cart: <%= number_to_currency(total, :unit => "€") %></b>
+  <br><br>
 
-  <p><%= link_to "Continue Shopping", categories_path %></p><br>
-  </div>
+  <h3> Delivery Address: </h3>
+  <%= current_user.first_name %> <%= current_user.last_name %> <br>
+  <%= current_user.street %>
+  <%= current_user.house_number %> <br>
+  <%= current_user.postal %> <br>
+  <%= current_user.city %> <br>
+  <%= current_user.country %> <br><br>
+
+  <%= link_to "Update address", edit_user_registration_path %>
 
   <% if user_signed_in?%>
-    <div class= "checkout"><%= link_to 'Checkout', cart_checkout_path %></div>
+    <div class= "checkout"><%= link_to 'Continue checkout', new_order_path %></div>
   <% else %>
     <%= link_to "Log in to checkout", new_user_session_path %>
   <% end %>
