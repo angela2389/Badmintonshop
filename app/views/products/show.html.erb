@@ -11,6 +11,6 @@
 <p>Stock: <%= @product.stock %></p>
 <p>Ref no.:<%= @product.reference_number %></p>
 
-
+<%= link_to "Add to cart", add_cart_path %> |
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_rackets_path %>
