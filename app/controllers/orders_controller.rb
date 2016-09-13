@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
       @cart = session[:cart]
       @order = Order.create(order_params)
       @order.user = current_user
+      @order.status = "In progress"
 
       @cart.each do | id, quantity|
       @order.orderitems.new(product_id: id, quantity: quantity)
