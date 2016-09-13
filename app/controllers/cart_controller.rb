@@ -43,7 +43,12 @@ class CartController < ApplicationController
   end
 
   def checkout
-      @order = Order.create(user: current_user)
       @cart = session[:cart]
+      @order = Order.create(user: current_user)
+  end
+
+  def createorder
+      @cart = session[:cart]
+      @order = Order.create(user: current_user)
   end
 end

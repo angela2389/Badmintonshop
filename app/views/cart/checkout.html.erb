@@ -1,27 +1,34 @@
-<h1>Your Order</h1>
+<h2> Checkout </h2>
 
-<p> You have succesfully ordered: </p>
-<% totalprice = 0 %>
-<% @cart.each do |k, v| %>
+<% total = 0 %>
 
-<% Product.find([k]).pluck(:name).join(" ") %>
-<% @c = Product.find([k]).pluck(:id).join(" ") %>
-<% @p = Product.find([k]).pluck(:price).join(" ") %>
-<% @q = v %>
-<% Orderitem.create(order: @order, product_id: @c, quantity: @q, subtotal: @p) %>
-Ordered items: <%= Product.find([k]).pluck(:name).join(" ") %>
-<br>
-Quantity: <%= @q %>
-<br>
-Price: €<%= @subtotal = @p.to_i * @q %>
-<br>
-<br>
-<% totalprice = totalprice + @subtotal %>
-<% end %>
-<% @order.update_attributes( totalprice: totalprice ) %>
+<table>
+  <tr class="cart">
+    <td>Name</td>
+    <td>Price</td>
+    <td>Quantity</td>
+    <td>Total price</td>
+  </tr>
 
-<br>
-<b> Total price: € <%= totalprice %>
-<br>
-<br>
-Order id: <%= @order.id %></b>
+  <% @cart.each do | id, quantity | %>
+    <% product = Product.find_by_id(id) %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= number_to_currency(product.price, :unit => "€") %></td>
+    <td><%= quantity %> </td>
+    <% subtotal = quantity * product.price %>
+    <td><%=number_to_currency(subtotal, :unit => "€") %></td>
+  </tr>
+    <%total = total + subtotal%>
+  <% end %>
+  </table>
+  <br>
+  <b>Total shopping cart:<%= number_to_currency(total, :unit => "€") %></b>
+  <br><br>
+  <h3> Delivery Address: </h3>
+  <%= current_user.first_name %> <%= current_user.last_name %>
+  <%= current_user.street %>
+  <%= current_user.house_number %>
+  <%= current_user.postal %>
+  <%= current_user.city %>
+  <%= current_user.country %>

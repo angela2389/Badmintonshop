@@ -8,6 +8,7 @@
 
 Product.delete_all
 Category.delete_all
+User.delete_all
 
 shuttles = Category.create( name: 'Shuttles')
 rackets = Category.create( name: 'Rackets')
@@ -67,3 +68,15 @@ Product.create(
   category: clothes,
   brand: 'Yonex',
   image: "http://www.badminton-eshop.com/images/products/large_175_Screen_Shot_2014-04-17_at_16.10.28.png")
+
+User.create(
+  first_name: "Lydia",
+  last_name: "Vermeer",
+  email: "lydiavermeer@gmail.com",
+  password: "123456",
+  street: "Lagedijk",
+  house_number: 25,
+  postal: "1100BR",
+  city: "Medemblik",
+  country: "The Netherlands"
+)
