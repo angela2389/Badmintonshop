@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :set_order, only: [:show, :edit, :update, :destroy]
 
     # GET /orders
     # GET /orders.json
@@ -30,7 +31,8 @@ class OrdersController < ApplicationController
     # POST /orders.json
     def create
       @cart = session[:cart]
-      @order = Order.create(user_id: current_user.id)
+      @order = Order.create(order_params)
+      @order.user = current_user
 
       @cart.each do | id, quantity|
       @order.orderitems.new(product_id: id, quantity: quantity)
@@ -44,6 +46,7 @@ class OrdersController < ApplicationController
           format.json { render json: @order.errors, status: :unprocessable_entity }
         end
       end
+      session[:cart] = nil
     end
   end
 
@@ -74,11 +77,11 @@ class OrdersController < ApplicationController
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_order
-        @order = order.find(params[:id])
+        @order = Order.find(params[:id])
       end
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def order_params
-        params.require(:order).permit(:comments)
+        params.require(:order).permit(:comments, :paymentmethod)
       end
   end

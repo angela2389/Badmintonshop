@@ -35,14 +35,14 @@
   <%= current_user.country %> <br><br>
 
   <%= link_to "Update address", edit_user_registration_path %>
+  <%= form_for(@order) do |f| %>
 
   <h3> Choose your payment method: </h3>
-  <%= radio_button_tag(:paymentmethod, "bank transfer") %>
-  <%= label_tag(:paymentmethod, "Bank transfer") %><br>
-  <%= radio_button_tag(:paymentmethod, "cash on delivery") %>
-  <%= label_tag(:paymentmethod, "Cash on delivery") %>
+  <%= f.radio_button(:paymentmethod, "Bank transfer") %>
+  <%= f.label(:paymentmethod, "Bank transfer") %><br>
+  <%= f.radio_button(:paymentmethod, "Cash on delivery") %>
+  <%= f.label(:paymentmethod, "Cash on delivery") %>
 
-  <%= form_for(@order) do |f| %>
     Comments: <%= f.text_area :comments %>
     <%= f.submit %>
     <% end %>
