@@ -1,7 +1,4 @@
 <h3>Order id: <%= @order.id %></h3>
-<p> Status: <%= @order.status %> </p>
-<p> Comments: <%= @order.comments %></p>
-<p> Payment method: <%= @order.paymentmethod %></p>
 
 <h3> Ordered items: </h3>
 
@@ -10,3 +7,7 @@
   <tr> Quantity </tr></b>
 <%= render @order.orderitems %>
 </table>
+
+<p> Status: <%= @order.status %> </p>
+<p> Comments: <%= @order.comments %></p>
+<p> Payment method: <%= @order.paymentmethod %></p>

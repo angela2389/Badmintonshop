@@ -18,10 +18,32 @@ body {
   font-family: arial;
 }
 
+a{
+  text-decoration: none;
+  color: #00457a;
+  padding: 1px;
+}
+
+.header {
+  background-image: url("http://res.cloudinary.com/angela2389/image/upload/v1473771827/racketshuttle_weeuut.jpg");
+  background-size: cover;
+  padding: 5px;
+  margin: -10px;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
 .navbar ul li{
   display: inline-block;
   padding: 4px;
   float: right;
+}
+
+.navbar-left {
+  border: 1px solid black;
+  background-color: #67c7f7;
 }
 
 .productoverview {
