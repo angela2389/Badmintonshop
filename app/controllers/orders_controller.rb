@@ -38,6 +38,9 @@ class OrdersController < ApplicationController
 
       @cart.each do | id, quantity|
         @product = Product.find(id)
+        if @product.negative_stock(quantity) === true
+          redirect_to cart_path, notice: 'There is not enough stock to complete your order' and return
+        end
         @product.decrease_stock(quantity)
         @order.orderitems.new(product_id: id, quantity: quantity, subtotal: quantity * @product.price)
         @order.total_price = @order.total_price + quantity * @product.price

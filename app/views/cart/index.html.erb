@@ -1,5 +1,7 @@
 <div class="cart-total">
+<p id="notice"><%= notice %></p>
 <h1>Cart page</h1>
+
 <%= link_to 'Empty the Cart', cart_clear_path %>
 <br><br><br>
 
@@ -11,6 +13,7 @@
     <td>Price</td>
     <td>Quantity</td>
     <td>Total price</td>
+    <td>Stock</td>
   </tr>
 
   <% @cart.each do | id, quantity | %>
@@ -19,9 +22,13 @@
     <td><%= product.name %></td>
     <td><%= number_to_currency(product.price, :unit => "€") %></td>
     <td><%= link_to "-", remove_cart_path(product) %>
-    <%= quantity %><%= link_to "+", add_cart_path(product) %> </td>
+    <%= quantity %>
+    <% if quantity < product.stock %>
+    <%= link_to "+", add_cart_path(product) %>
+    <% end %> </td>
     <% subtotal = quantity * product.price %>
-    <td><%=number_to_currency(subtotal, :unit => "€") %></td>
+    <td><%= number_to_currency(subtotal, :unit => "€") %></td>
+    <td><%= product.stock %></td>
   </tr>
     <%total = total + subtotal%>
   <% end %>

@@ -7,9 +7,14 @@
         <div class = "product">
           <h3><%= product.name %></h3><br>
           <%= product.sub_header %> <br>
-          <%= image_tag product.image.to_s%><br>
+          <%= image_tag product.image.to_s %><br>
           <p class= "price"><%= format_price(product) %></p>
-          <%= link_to 'Add to cart', add_cart_path(product) %> <br><br>
+          <p> Stock: <%= product.stock %> </p>
+          <% if product.in_stock? %>
+          <%= link_to 'Add to cart', add_cart_path(product) %>
+          <% else %>
+          <%= "Product not in stock" %>
+          <% end %> <br><br>
           <%= link_to 'Show', product %>
           <%= link_to 'Edit', edit_product_path(product) %>
           <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>

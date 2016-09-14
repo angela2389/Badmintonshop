@@ -7,9 +7,13 @@
 <p>Brand: <%= @product.brand %> </p>
 
 <p>Price: <%= format_price(@product) %></p>
-<p>Stock: <%= @product.stock %></p>
 <p>Ref no.:<%= @product.reference_number %></p>
+<p>Stock: <%= @product.stock %></p>
+<% if @product.in_stock? %>
+  <%= link_to 'Add to cart', add_cart_path(@product) %>
+<% else %>
+  <%= "Product not in stock" %>
+<% end %>
 
-<%= link_to "Add to cart", add_cart_path %> <br>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_rackets_path %>

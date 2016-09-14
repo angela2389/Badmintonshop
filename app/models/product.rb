@@ -8,4 +8,15 @@ class Product < ApplicationRecord
     self.save
   end
 
+  def in_stock?
+    if self.stock >= 1
+      return true
+    end
+  end
+
+  def negative_stock(quantity)
+    if (self.stock - quantity) < 0 
+      return true
+    end
+  end
 end
