@@ -25,8 +25,11 @@ feature 'Add item to cart and create an order', js: true do
     click_link("Add to cart")
     click_link("Checkout")
     click_link("Continue checkout")
+    choose("order_paymentmethod_bank_transfer")
+    fill_in 'order_comments', with: 'quick delivery!!'
     page.execute_script("$('form').submit()")
     sleep(3)
     expect(page).to have_content('Order id: 1')
+    expect(page).to have_content('quick delivery!!')
   end
 end
