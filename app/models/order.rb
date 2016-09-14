@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :orderitems
+  has_many :products, through: :orderitems
 
   def shippingcharges?
     if self.total_price < 50

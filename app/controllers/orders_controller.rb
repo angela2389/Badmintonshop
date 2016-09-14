@@ -38,6 +38,7 @@ class OrdersController < ApplicationController
 
       @cart.each do | id, quantity|
         @product = Product.find(id)
+        @product.decrease_stock
         @order.orderitems.new(product_id: id, quantity: quantity, subtotal: quantity * @product.price)
         @order.total_price = @order.total_price + quantity * @product.price
       end
