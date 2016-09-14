@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Orderitem.delete_all
+Order.delete_all
+User.delete_all
 Product.delete_all
 Category.delete_all
-User.delete_all
 
 shuttles = Category.create( name: 'Shuttles')
 rackets = Category.create( name: 'Rackets')
@@ -23,7 +25,7 @@ Product.create(
   stock: 10,
   category: rackets,
   brand: 'Yonex',
-  image: "http://www.decathlon.nl/media/834/8343028/classic_dc52414e34184593a66297f81fe9d762.jpg")
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1473845389/YonexArcSaber_aosbti.jpg")
 
 Product.create(
   reference_number: 1442,
@@ -34,7 +36,7 @@ Product.create(
   stock: 10,
   category: rackets,
   brand: 'Yonex',
-  image: "http://www.decathlon.nl/media/834/8343028/classic_dc52414e34184593a66297f81fe9d762.jpg")
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1473845394/YonexMusclePower_ndm3nm.jpg")
 
 Product.create(
   reference_number: 1443,
@@ -45,7 +47,7 @@ Product.create(
   stock: 10,
   category: rackets,
   brand: 'Carlton',
-  image: "http://www.decathlon.nl/media/834/8343028/classic_dc52414e34184593a66297f81fe9d762.jpg")
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1473845398/YonexNanoray_brrqou.jpg")
 
 Product.create(
   reference_number: 2440,
@@ -56,18 +58,40 @@ Product.create(
   stock: 100,
   category: shuttles,
   brand: 'Yonex',
-  image: "http://static1.shop.indiatimes.com/images/products/additional/original/B1012630_View_1/sports/feather-shuttles/yonex-feather-shuttlecock-as-50.jpg")
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1473845638/yonexshuttles_m75g1j.jpg")
+
+Product.create(
+  reference_number: 2441,
+  name: 'Feather Shuttles',
+  sub_header: "Nice looking feather shuttles",
+  description: "Feathers",
+  price: 19.50,
+  stock: 80,
+  category: shuttles,
+  brand: 'Carlton',
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1473845466/carltonshuttles_bk9e1v.jpg")
 
 Product.create(
   reference_number: 3440,
   name: 'Blue shirt',
   sub_header: "Nice looking shirt",
   description: "One fit all",
-  price: 59.99,
+  price: 39.99,
   stock: 10,
   category: clothes,
-  brand: 'Yonex',
-  image: "http://www.badminton-eshop.com/images/products/large_175_Screen_Shot_2014-04-17_at_16.10.28.png")
+  brand: 'Carlton',
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1473845428/femaleshirt_dtunwc.png")
+
+Product.create(
+  reference_number: 3441,
+  name: 'White yellow shirt',
+  sub_header: "Nice looking shirt for men",
+  description: "One fit all",
+  price: 39.99,
+  stock: 10,
+  category: clothes,
+  brand: 'Carlton',
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1473845380/maleshirt_odzp14.png")
 
 User.create(
   first_name: "Lydia",

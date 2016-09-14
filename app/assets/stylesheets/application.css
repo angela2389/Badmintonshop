@@ -70,6 +70,7 @@ a {
     border: 1px solid black;
     flex: 1;
     max-width: 300px;
+    max-height: 500px;
     margin: 1px;
     text-align: center;
     align-items: center;
@@ -77,6 +78,7 @@ a {
 
 .product img{
     max-width: 290px;
+    max-height: 290px;
 }
 
 .price {
