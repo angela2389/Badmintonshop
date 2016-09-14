@@ -3,8 +3,8 @@ class Product < ApplicationRecord
   has_many :orderitems
   has_many :orders
 
-  def decrease_stock
-    self.stock = self.stock - 1
+  def decrease_stock(quantity)
+    self.stock = self.stock - quantity
     self.save
   end
 
