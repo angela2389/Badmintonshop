@@ -23,6 +23,14 @@
   <% end %>
   </table>
   <br>
+  <% if total < 50 %>
+  <%= "Shipping charges: €3.50"%>
+  <% total= total + 3.50 %>
+  <% else %>
+  <%= "Free of shipping charges"%>
+  <% end %>
+
+  <br><br>
   <b>Total shopping cart: <%= number_to_currency(total, :unit => "€") %></b>
   <br><br>
 
