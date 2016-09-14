@@ -9,7 +9,9 @@
   <tr> Quantity </tr></b>
 <%= render @order.orderitems %>
 </table>
-
+<br>
+<p> Shipping charges <%= @order.shippingcharges %> </p>
+<p><b> Total price <%= @order.total_price %> </b></p><br>
 <p> Status: <%= @order.status %> </p>
 <p> Comments: <%= @order.comments %></p>
 <p> Payment method: <%= @order.paymentmethod %></p>

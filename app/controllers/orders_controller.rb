@@ -42,6 +42,8 @@ class OrdersController < ApplicationController
         @order.total_price = @order.total_price + quantity * @product.price
       end
 
+      @order.shippingcharges?
+
       respond_to do |format|
         if @order.save
           format.html { redirect_to @order, notice: 'Order was successfully created.' }
