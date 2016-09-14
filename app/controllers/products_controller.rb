@@ -74,6 +74,20 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit_multiple
+    @products = Product.find(params[:product_ids])
+  end
+
+  def update_multiple
+    @products = Product.update(params[:products].keys, params[:products].values)
+    @products.reject! { |p| p.errors.empty? }
+    if @products.empty?
+      redirect_to products_url
+    else
+      render "edit_multiple"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

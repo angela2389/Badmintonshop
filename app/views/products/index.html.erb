@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Products</h2>
-
+<%= form_tag edit_multiple_products_path, method: :get do %>
 <table>
   <thead>
     <tr>
+      <th></th>
       <th> Name </th>
+      <th> Ref no. </th>
       <th> Price </th>
       <th> Stock </th>
     </tr>
@@ -14,7 +16,9 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td><%= check_box_tag "product_ids[]", product.id %></td>
         <td><%= product.name %></td>
+        <td><%= product.reference_number %></td>
         <td><%= product.price %></td>
         <td><%= product.stock %></td>
         <td><%= link_to 'Show', product %></td>
@@ -24,7 +28,8 @@
     <% end %>
   </tbody>
 </table>
-
+<%= submit_tag "Change stock" %>
+<% end %>
 <br>
 
 <%= link_to 'New Product', new_product_path %>

@@ -1,0 +1,35 @@
+<h1> Update stock </h1>
+
+<%= form_tag update_multiple_products_path, method: :put do %>
+  <table>
+    <tr>
+  <th> Name </th>
+  <th> Ref no. </th>
+  <th> Stock </th>
+  </tr>
+
+  <% @products.each do |product| %>
+    <%= fields_for "products[]", product do |f| %>
+    <% if product.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+        <ul>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.reference_number %></td>
+      <td><%= f.number_field :stock %></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>
+  <div class="actions">
+    <%= submit_tag "Update" %>
+  </div>
+<% end %>

@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   get 'products/rackets' => "products#rackets"
   get 'products/shuttles' => "products#shuttles"
   get 'products/clothes' => "products#clothes"
-  resources :products
+  resources :products do
+    collection do
+      get :edit_multiple
+      put :update_multiple
+    end
+  end
 
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
