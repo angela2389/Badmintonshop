@@ -18,15 +18,14 @@ body {
   font-family: arial;
 }
 
-a{
+a {
   text-decoration: none;
   color: #00457a;
   padding: 1px;
 }
 
 .header {
-  background-image: url("http://res.cloudinary.com/angela2389/image/upload/v1473771827/racketshuttle_weeuut.jpg");
-  background-size: cover;
+  background-color: #0086f4;
   padding: 5px;
   margin: -10px;
 }
@@ -37,7 +36,13 @@ a{
 
 .navbar {
   display: flex;
+  background-color: #000a7f;
 }
+
+.navbar a{
+  color: #ffffff;
+}
+
 .navbar-right ul li{
   display: inline-block;
   padding: 4px;

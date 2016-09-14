@@ -2,11 +2,13 @@
 
 <h3>Order id: <%= @order.id %></h3>
 
-<h3> Ordered items: </h3>
+<h4> Ordered items: </h4>
 
 <table>
-  <b><tr> Product </tr>
-  <tr> Quantity </tr></b>
+  <b><th> Product </th>
+  <th> Quantity </th>
+  <th> Price </th></b>
+
 <%= render @order.orderitems %>
 </table>
 <br>

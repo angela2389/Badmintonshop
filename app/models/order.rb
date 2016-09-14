@@ -7,5 +7,7 @@ class Order < ApplicationRecord
       self.shippingcharges = 3.50
       self.total_price = self.total_price + self.shippingcharges
     end
+  else
+    self.shippingcharges = 0.00
   end
 end

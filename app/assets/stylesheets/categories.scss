@@ -1,3 +1,41 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.Categories {
+  display: flex;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.Rackets {
+  border: 1px solid black;
+  background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473838773/badmintonrackets2_kzhqgt.jpg);
+  background-size: cover;
+  height: 200px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30px;
+  flex: 3;
+}
+
+.Shuttles {
+  border: 1px solid black;
+  background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473839254/shuttles_wv8lff.jpg);
+  background-size: cover;
+  height: 200px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30px;
+  flex: 1;
+}
+
+.Clothes {
+  border: 1px solid black;
+  background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473839807/clothespeter_ku2rh4.jpg);
+  background-size: cover;
+  height: 400px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30px;
+}
