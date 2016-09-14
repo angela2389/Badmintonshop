@@ -25,9 +25,10 @@ a {
 }
 
 .header {
-  background-color: #0086f4;
-  padding: 5px;
+  background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473842011/light-blue-background-light-blue-background-wallpaper-1_ydxd79.jpg);
+  padding: 1px;
   margin: -10px;
+  text-align: center;
 }
 
 .header h1 {
@@ -37,10 +38,16 @@ a {
 .navbar {
   display: flex;
   background-color: #000a7f;
+  border: 1px solid black;
+  color: #99eaff;
 }
 
 .navbar a{
   color: #ffffff;
+}
+
+.navbar a:hover{
+  color: #c9eaff;
 }
 
 .navbar-right ul li{
@@ -65,10 +72,15 @@ a {
     max-width: 300px;
     margin: 1px;
     text-align: center;
+    align-items: center;
 }
 
 .product img{
     max-width: 290px;
+}
+
+.price {
+  color: #4fd800;
 }
 
 .checkout {

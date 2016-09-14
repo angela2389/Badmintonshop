@@ -5,13 +5,14 @@
 .Categories {
   display: flex;
   width: 100%;
-  border: 1px solid black;
 }
 
 .Rackets {
   border: 1px solid black;
+  box-sizing: border-box;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473838773/badmintonrackets2_kzhqgt.jpg);
   background-size: cover;
+  min-width: 700px;
   height: 200px;
   text-align: center;
   color: #ffffff;
@@ -21,8 +22,10 @@
 
 .Shuttles {
   border: 1px solid black;
+  box-sizing: border-box;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473839254/shuttles_wv8lff.jpg);
   background-size: cover;
+  min-width: 300px;
   height: 200px;
   text-align: center;
   color: #ffffff;
@@ -34,6 +37,7 @@
   border: 1px solid black;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473839807/clothespeter_ku2rh4.jpg);
   background-size: cover;
+  width: 1000px;
   height: 400px;
   text-align: center;
   color: #ffffff;
