@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   #  }
  # end
   root 'categories#index'
-  resources :orders
+  resources :orders do
+    collection do
+      put :update_to_shipping
+    end
+  end
 
   resources :categories
   get 'products/rackets' => "products#rackets"

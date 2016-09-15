@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Orders</h2>
+<%= form_tag update_to_shipping_orders_path, method: :put do %>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th> ID </th>
+      <th> Customer </th>
+      <th> Total price </th>
+      <th> Comments </th>
+      <th> Status </th>
+      <th> Created at </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= check_box_tag "order_ids[]", order.id %></td>
+        <td><%= order.id %></td>
+        <td><%= order.user.first_name %> <%= order.user.last_name %></td>
+        <td><%= order.total_price %></td>
+        <td><%= order.comments %></td>
+        <td><%= order.status %></td>
+        <td><%= order.created_at %>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= submit_tag "Change status to: Shipped" %>
+<% end %>
