@@ -1,10 +1,12 @@
 class OrdersController < ApplicationController
+  load_and_authorize_resource
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
     # GET /orders
     # GET /orders.json
     def index
       @orders = Order.all.sort_by &:id
+      authorize! :read, @order
     end
 
     def checkout
@@ -15,6 +17,7 @@ class OrdersController < ApplicationController
     # GET /orders/1.json
     def show
       @order = Order.find(params[:id])
+      authorize! :read, @order
     end
 
     # GET /orders/new
@@ -35,6 +38,7 @@ class OrdersController < ApplicationController
       @order.user = current_user
       @order.status = "In progress"
       @order.total_price = 0.00
+      authorize! :create, @order
 
       @cart.each do | id, quantity|
         @product = Product.find(id)
@@ -63,6 +67,8 @@ class OrdersController < ApplicationController
     # PATCH/PUT /orders/1
     # PATCH/PUT /orders/1.json
     def update
+      authorize! :update, @order
+
       respond_to do |format|
         if @order.update(order_params)
           format.html { redirect_to orders_path, notice: 'Order was successfully updated.' }
@@ -75,13 +81,15 @@ class OrdersController < ApplicationController
     end
 
     def update_to_shipping
-      Order.where(id: params[:order_ids]).update_all(status: "In progress")
+      authorize! :update, @order
+      Order.where(id: params[:order_ids]).update_all(status: "Shipped")
       redirect_to orders_path
     end
 
     # DELETE /orders/1
     # DELETE /orders/1.json
     def destroy
+      authorize! :destroy, @order
       @order.destroy
       respond_to do |format|
         format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }

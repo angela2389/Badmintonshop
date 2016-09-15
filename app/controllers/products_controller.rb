@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    authorize! :create, @product
   end
 
   # GET /products/1/edit
@@ -38,6 +39,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    authorize! :create, @product
 
     respond_to do |format|
       if @product.save
@@ -53,6 +55,8 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    authorize! :update, @product
+
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -67,6 +71,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    authorize! :destroy, @product
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
@@ -75,10 +80,12 @@ class ProductsController < ApplicationController
   end
 
   def edit_multiple
+    authorize! :update, @product
     @products = Product.find(params[:product_ids])
   end
 
   def update_multiple
+    authorize! :update, @product
     @products = Product.update(params[:products].keys, params[:products].values)
     @products.reject! { |p| p.errors.empty? }
     if @products.empty?
