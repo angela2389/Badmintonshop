@@ -8,7 +8,7 @@ class Ability
     can :read, Category
     can :read, Product
 
-    if user.admin === true
+    if user.is_admin?
       can :manage, :all
     elsif user.persisted? # in db, so logged in
       # Can MANAGE (create, read, update, destroy, etc.) own Post

@@ -9,15 +9,23 @@
           <%= product.sub_header %> <br>
           <%= image_tag product.image.to_s%><br>
           <p class= "price"><%= format_price(product) %></p>
-          <%= link_to 'Add to cart', add_cart_path(product) %><br><br>
-          <%= link_to 'Show', product %>
+          <p> Stock: <%= product.stock %> </p>
+          <% if product.in_stock? %>
+          <%= link_to 'Add to cart', add_cart_path(product) %>
+          <% else %>
+          <%= "Product not in stock" %>
+          <% end %> <br><br>
+          <%= link_to 'Show details', product %>
+          <% if current_user.is_admin? %>
           <%= link_to 'Edit', edit_product_path(product) %>
           <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </div>
       <% end %>
     <% end %>
   </div>
-<br>
-
-<%= link_to 'New Product', new_product_path %><br>
-<%= link_to 'Back', categories_path %>
+  <br>
+  <% if current_user.is_admin? %>
+  <%= link_to 'New Product', new_product_path %><br>
+  <% end %>
+  <%= link_to 'Back', categories_path %>
