@@ -14,6 +14,7 @@ class Ability
       # Can MANAGE (create, read, update, destroy, etc.) own Post
       can :read, Order, user: user
       can :read, Orderitem, user: user
+      can :update, Order, user: user
       can :create, Order, user: user
       can :create, Orderitem, user: user
     end

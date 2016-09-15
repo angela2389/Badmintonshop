@@ -36,13 +36,6 @@
   <br><br>
 
   <%= form_for(@order) do |f| %>
-
-  <h3> Choose your payment method: </h3>
-  <%= f.radio_button(:paymentmethod, "Bank transfer") %>
-  <%= f.label(:paymentmethod, "Bank transfer") %><br>
-  <%= f.radio_button(:paymentmethod, "Cash on delivery") %>
-  <%= f.label(:paymentmethod, "Cash on delivery") %>
-
-  <h3>Comments: </h3> <%= f.text_area :comments %><br><br>
-    <%= f.submit "Finalize Order" %>
-    <% end %>
+    <%= render "#{@order.current_step}_step", :f => f %><br>
+    <%= f.submit "Continue" %>
+<%= f.submit "Back", :name => "previous_button" unless @order.first_step? %>  <% end %>
