@@ -48,7 +48,7 @@
   </div>
 
   <% if user_signed_in?%>
-    <div class= "checkout"><%= link_to 'Checkout', cart_checkout_path %></div>
+    <div class= "checkout"><%= link_to 'Checkout', new_order_path %></div>
   <% else %>
     <%= link_to "Log in to checkout", new_user_session_path %>
   <% end %>

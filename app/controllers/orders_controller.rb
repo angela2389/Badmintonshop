@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  load_and_authorize_resource
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
     # GET /orders
@@ -22,8 +21,10 @@ class OrdersController < ApplicationController
 
     # GET /orders/new
     def new
-      @order = Order.new
       @cart = session[:cart]
+      session[:order_params] ||= {}
+      @order = Order.new(session[:order_params])
+      @order.current_step = session[:order_step]
     end
 
     # GET /orders/1/edit
@@ -34,41 +35,47 @@ class OrdersController < ApplicationController
     # POST /orders.json
     def create
       @cart = session[:cart]
-      @order = Order.create(order_params)
+      @order = Order.new(order_params)
+      session[:order_params].deep_merge!(order_params) if order_params
+      @order = Order.new(session[:order_params])
       @order.user = current_user
       @order.status = "In progress"
       @order.total_price = 0.00
-      authorize! :create, @order
-
-      @cart.each do | id, quantity|
-        @product = Product.find(id)
-        if @product.negative_stock(quantity) === true
-          redirect_to cart_path, notice: 'There is not enough stock to complete your order' and return
+      @order.current_step = session[:order_step]
+      if params[:back_button]
+        @order.previous_step
+      elsif @order.last_step?
+        @order.save
+        @cart.each do | id, quantity|
+          @product = Product.find(id)
+          if @product.negative_stock(quantity) === true
+            redirect_to cart_path, notice: 'There is not enough stock to complete your order' and return
+          end
+          @product.decrease_stock(quantity)
+          @order.orderitems.new(product_id: id, quantity: quantity, subtotal: quantity * @product.price)
+          @order.total_price = @order.total_price + quantity * @product.price
+          @order.shippingcharges?
+          @order.save
         end
-        @product.decrease_stock(quantity)
-        @order.orderitems.new(product_id: id, quantity: quantity, subtotal: quantity * @product.price)
-        @order.total_price = @order.total_price + quantity * @product.price
+      else
+        @order.next_step
       end
+      session[:order_step] = @order.current_step
 
-      @order.shippingcharges?
-
-      respond_to do |format|
-        if @order.save
-          format.html { redirect_to @order, notice: 'Order was successfully created.' }
-          format.json { render :show, status: :created, location: @order }
-        else
-          format.html { render :new }
-          format.json { render json: @order.errors, status: :unprocessable_entity }
-        end
-      session[:cart] = nil
+      if @order.new_record?
+        render 'new'
+      else
+        session[:order_step] = session[:order_params] = nil
+        session[:cart] = nil
+        flash[:notice] = "Order has successfully been created"
+        redirect_to @order
+      end
     end
   end
 
     # PATCH/PUT /orders/1
     # PATCH/PUT /orders/1.json
     def update
-      authorize! :update, @order
-
       respond_to do |format|
         if @order.update(order_params)
           format.html { redirect_to orders_path, notice: 'Order was successfully updated.' }
@@ -105,6 +112,5 @@ class OrdersController < ApplicationController
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def order_params
-        params.require(:order).permit(:comments, :paymentmethod, :status)
+        params.require(:order).permit(:comments, :paymentmethod, :status, :deliveryaddress)
       end
-  end
