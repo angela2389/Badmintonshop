@@ -38,9 +38,10 @@ feature 'Add item to cart and create an order', js: true do
     page.execute_script("$('form').submit()")
     fill_in 'order_comments', with: 'quick delivery!!'
     page.execute_script("$('form').submit()")
-    sleep(3)
     expect(page).to have_content('Order id: 1')
     expect(page).to have_content('quick delivery!!')
+    expect(page).to have_content('De Brik')
+    expect(page).to have_content('Bank transfer')
     expect(page).to have_content('Yonex X')
   end
 end

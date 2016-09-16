@@ -1,3 +1,11 @@
-<h3>Delivery address: </h3>
-<%= f.label :deliveryaddress %>
-<%= f.text_area :deliveryaddress %>
+<div id="formaddress"> <h3>Address: </h3>
+<p><%= current_user.first_name %> <%= current_user.last_name %></p>
+<p><%= current_user.street %> <%= current_user.house_number %></p>
+<p><%= current_user.postal %> <%= current_user.city %></p>
+<p><%= current_user.country %></p>
+</div>
+
+<div id="deliveryaddress"><h3>Delivery address: </h3>
+<p>Complete if different than left address</p>
+<p><%= f.text_area :deliveryaddress, size: "30x8" %></p>
+</div>

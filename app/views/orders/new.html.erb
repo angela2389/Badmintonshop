@@ -34,8 +34,9 @@
   <br><br>
   <b>Total shopping cart: <%= number_to_currency(total, :unit => "€") %></b>
   <br><br>
-
+<div class="form">
   <%= form_for(@order) do |f| %>
     <%= render "#{@order.current_step}_step", :f => f %><br>
     <%= f.submit "Continue" %>
-<%= f.submit "Back", :name => "previous_button" unless @order.first_step? %>  <% end %>
+<!-- <%= f.submit "Back", :name => "previous_button" unless @order.first_step? %>  <% end %> -->
+</div>
