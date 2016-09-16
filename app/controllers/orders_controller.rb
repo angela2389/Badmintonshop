@@ -35,7 +35,8 @@ class OrdersController < ApplicationController
     # POST /orders.json
     def create
       @cart = session[:cart]
-      orderparams = session[:order_params].deep_merge!(params[:order]) if params[:order]
+      @order = Order.new(order_params)
+      session[:order_params].deep_merge!(order_params) if order_params
       @order = Order.new(session[:order_params])
       @order.user = current_user
       @order.status = "In progress"
@@ -111,5 +112,5 @@ class OrdersController < ApplicationController
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def order_params
-        params.require(:order).permit(:comments, :paymentmethod, :status)
+        params.require(:order).permit(:comments, :paymentmethod, :status, :deliveryaddress)
       end

@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-  attr_accessor :deliveryaddress, :comments, :paymentmethod
   attr_writer :current_step
 
   belongs_to :user
@@ -34,7 +33,7 @@ class Order < ApplicationRecord
   def last_step?
     current_step == steps.last
   end
-  
+
   def steps
     %w[shipping billing confirmation]
   end
