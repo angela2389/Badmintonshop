@@ -53,7 +53,7 @@ class OrdersController < ApplicationController
           end
           @product.decrease_stock(quantity)
           @order.orderitems.new(product_id: id, quantity: quantity, subtotal: quantity * @product.price)
-          @order.total_price = @order.total_price + quantity * @product.price
+          @order.calculatetotalprice(quantity, @product.price)
           @order.shippingcharges?
           @order.save
         end

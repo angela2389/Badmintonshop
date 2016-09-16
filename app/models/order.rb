@@ -14,6 +14,10 @@ class Order < ApplicationRecord
     end
   end
 
+  def calculatetotalprice(quantity, price)
+    self.total_price = self.total_price + quantity * price
+  end
+
   def current_step
     @current_step || steps.first
   end
