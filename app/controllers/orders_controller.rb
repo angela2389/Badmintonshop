@@ -71,7 +71,6 @@ class OrdersController < ApplicationController
         redirect_to @order
       end
     end
-  end
 
     # PATCH/PUT /orders/1
     # PATCH/PUT /orders/1.json
@@ -114,3 +113,4 @@ class OrdersController < ApplicationController
       def order_params
         params.require(:order).permit(:comments, :paymentmethod, :status, :deliveryaddress)
       end
+    end
