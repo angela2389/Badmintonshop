@@ -1,7 +1,7 @@
 <h1>Badminton webshop</h1>
 
 Project originally started as final assignment in Codaisseur course.
-This webshop features:
+This webshop contains:
   - Product index page by category
   - Product overview page with option to change stock for all selected products
   - Shopping cart
