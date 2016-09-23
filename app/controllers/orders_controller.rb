@@ -35,7 +35,6 @@ class OrdersController < ApplicationController
     # POST /orders.json
     def create
       @cart = session[:cart]
-      @order = Order.new(order_params)
       session[:order_params].deep_merge!(order_params) if order_params
       @order = Order.new(session[:order_params])
       @order.user = current_user
