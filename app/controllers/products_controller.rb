@@ -7,6 +7,10 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def search
+    @products = Product.where(["name LIKE ?","%#{params[:search]}%"])
+  end
+
   def rackets
     @products = Product.all
   end

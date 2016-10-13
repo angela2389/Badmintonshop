@@ -1,5 +1,7 @@
 <h1>Badminton webshop</h1>
 
+Check the demo on: https://git.heroku.com/fathomless-retreat-51033.git
+
 Project originally started as final assignment in Codaisseur course.
 This webshop contains:
   - Product index page by category
