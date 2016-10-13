@@ -6,6 +6,7 @@ Project originally started as final assignment in Codaisseur course.
 This webshop contains:
   - Product index page by category
   - Product overview page with option to change stock for all selected products
+  - Search option
   - Shopping cart
   - Checkout procedure through a multipageform
   - Order overview page with option to change status for all selected orders to 'shipped'

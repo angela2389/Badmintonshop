@@ -1,13 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <div class="Categories">
-  <%= link_to products_rackets_path do %>
-  <div class = "Rackets"><h1> Rackets </h1></div>
+  <div class = "Rackets">
+    <%= link_to products_rackets_path do %>
+    <div class = "RacketsLink">
+      <h1> Rackets </h1>
+    </div>
+  </div>
   <% end %>
-  <%= link_to products_shuttles_path do %>
-  <div class = "Shuttles"><h1> Shuttles </h1></div>
-  <% end %>
+  <div class = "Shuttles">
+    <%= link_to products_shuttles_path do %>
+    <div class = "ShuttlesLink">
+      <h1> Shuttles </h1>
+    </div>
+    <% end %>
+  </div>
 </div>
-<%= link_to products_clothes_path do %>
-<div class = "Clothes"><h1> Clothes </h1></div>
-<% end %>
+<div class="Categories">
+  <div class = "Clothes">
+    <%= link_to products_clothes_path do %>
+      <div class = "ClothesLink">
+        <h1> Clothes </h1>
+      </div>
+    <% end %>
+  </div>
+</div>

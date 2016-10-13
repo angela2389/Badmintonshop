@@ -4,43 +4,52 @@
 
 .Categories {
   display: flex;
+  align-content: stretch;
   width: 100%;
+  margin: -20px 0px -30px 0px;
 }
 
 .Rackets {
+  flex-grow: 2;
+}
+
+.RacketsLink {
   border: 1px solid black;
-  box-sizing: border-box;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473838773/badmintonrackets2_kzhqgt.jpg);
   background-size: cover;
-  min-width: 900px;
   height: 200px;
-  text-align: center;
   color: #ffffff;
+  text-align: center;
   font-size: 30px;
-  flex: 3;
 }
 
 .Shuttles {
+  flex-grow: 1;
+}
+
+.ShuttlesLink {
   border: 1px solid black;
-  box-sizing: border-box;
-  background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473839254/shuttles_wv8lff.jpg);
-  background-size: cover;
-  min-width: 400px;
-  height: 200px;
   text-align: center;
   color: #ffffff;
+  height: 200px;
   font-size: 30px;
-  flex: 1;
+  background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473839254/shuttles_wv8lff.jpg);
+  background-size: cover;
 }
 
 .Clothes {
+  flex-grow: 1;
+}
+
+.ClothesLink {
   border: 1px solid black;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473839807/clothespeter_ku2rh4.jpg);
   background-size: cover;
-  width: 1300px;
   height: 400px;
   text-align: center;
   color: #ffffff;
   font-size: 30px;
-  margin-top: -15px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30px;
 }
