@@ -1,0 +1,15 @@
+{
+  "name": "Badmintonshop",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
