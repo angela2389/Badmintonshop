@@ -1,6 +1,6 @@
 <h1>Badminton webshop</h1>
 
-Check the demo on: https://git.heroku.com/fathomless-retreat-51033.git
+Check the demo on: https://fathomless-retreat-51033.herokuapp.com/
 
 Project originally started as final assignment in Codaisseur course.
 This webshop contains:
