@@ -2,18 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.Categories {
+.categories {
   display: flex;
   align-content: stretch;
   width: 100%;
   margin: -20px 0px -30px 0px;
 }
 
-.Rackets {
+.rackets {
   flex-grow: 2;
 }
 
-.RacketsLink {
+.racketsLink {
   border: 1px solid black;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473838773/badmintonrackets2_kzhqgt.jpg);
   background-size: cover;
@@ -23,11 +23,11 @@
   font-size: 30px;
 }
 
-.Shuttles {
+.shuttles {
   flex-grow: 1;
 }
 
-.ShuttlesLink {
+.shuttlesLink {
   border: 1px solid black;
   text-align: center;
   color: #ffffff;
@@ -37,11 +37,11 @@
   background-size: cover;
 }
 
-.Clothes {
+.clothes {
   flex-grow: 1;
 }
 
-.ClothesLink {
+.clothesLink {
   border: 1px solid black;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473839807/clothespeter_ku2rh4.jpg);
   background-size: cover;
@@ -51,5 +51,4 @@
   font-size: 30px;
   text-align: center;
   color: #ffffff;
-  font-size: 30px;
 }

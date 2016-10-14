@@ -1,23 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h3>Name: <%=@product.name %></h3>
-<p><%= @product.sub_header %></p>
-<%= image_tag @product.image.to_s %>
-<p>Description: <%= @product.description %> </p>
-<p>Brand: <%= @product.brand %> </p>
+<div class="showproduct">
+  <h3>Name: <%=@product.name %></h3>
+  <p><%= @product.sub_header %></p>
+  <%= image_tag @product.image.to_s %>
+  <p>Description: <%= @product.description %> </p>
+  <p>Brand: <%= @product.brand %> </p>
 
-<p>Price: <%= format_price(@product) %></p>
-<p>Ref no.:<%= @product.reference_number %></p>
-<p>Stock: <%= @product.stock %></p>
-<% if @product.in_stock? %>
-  <%= link_to 'Add to cart', add_cart_path(@product) %>
-<% else %>
-  <%= "Product not in stock" %>
-<% end %>
-
-<% if user_signed_in? %>
-  <% if current_user.is_admin? %>
-    <%= link_to 'Edit', edit_product_path(@product) %> |
-    <%= link_to 'Back', products_rackets_path %>
+  <p>Price: <%= format_price(@product) %></p>
+  <p>Ref no.:<%= @product.reference_number %></p>
+  <p>Stock: <%= @product.stock %></p>
+  <% if @product.in_stock? %>
+    <%= link_to 'Add to cart', add_cart_path(@product) %>
+  <% else %>
+    <%= "Product not in stock" %>
   <% end %>
-<% end %>
+
+  <% if user_signed_in? %>
+    <% if current_user.is_admin? %>
+      <%= link_to 'Edit', edit_product_path(@product) %> |
+      <%= link_to 'Back', products_rackets_path %>
+    <% end %>
+  <% end %>
+</div>
