@@ -52,3 +52,30 @@
   text-align: center;
   color: #ffffff;
 }
+
+.popular {
+  text-align: center;
+  margin: 0 auto;
+  background-color: #efefef;
+  border: 1px solid black;
+  margin-bottom: 2px;
+}
+.popular h1 {
+  color: #01457D;
+}
+.popularproducts {
+  display: inline-block;
+  border: 1px solid black;
+  flex: 1;
+  width: 300px;
+  max-height: 500px;
+  text-align: center;
+  align-items: center;
+  background-color: #fff;
+  margin-left: 15px;
+}
+
+.popularproducts img{
+    max-width: 250px;
+    max-height: 250px;
+}

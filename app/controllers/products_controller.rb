@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.where(["name LIKE ?","%#{params[:search]}%"])
+    @products = Product.where(["lower(name) LIKE ?","%#{params[:search].downcase}%"])
   end
 
   def rackets
