@@ -25,7 +25,6 @@ a {
 }
 
 .header {
-  background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473842011/light-blue-background-light-blue-background-wallpaper-1_ydxd79.jpg);
   padding: 1px;
   margin: -10px;
   text-align: center;
@@ -117,4 +116,10 @@ input[type="submit"]{
   background-color: #B4DAF4;
   color: #000;
   text-align: center;
+}
+
+footer {
+ position: absolute;
+ font-size: 12px;
+ margin-top: 10px;
 }
