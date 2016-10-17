@@ -35,6 +35,19 @@ a {
   color: #014984;
 }
 
+.filter {
+  border: 1px solid #91c2e2;
+  border-radius: 0px 15px 15px 0px;
+  margin-right: 5px;
+  background-color: #d7eaf7;
+  height: 100vh;
+  float:left;
+}
+
+.productspage {
+  display: block;
+}
+
 .productoverview {
   display: block;
   max-width: 1300px;
@@ -42,7 +55,8 @@ a {
 
 .product {
     display: inline-block;
-    border: 1px solid black;
+    border: 1px solid #e5e7e8;
+    border-radius: 2px;
     flex: 1;
     width: 300px;
     max-height: 500px;

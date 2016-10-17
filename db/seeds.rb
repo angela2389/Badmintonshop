@@ -50,6 +50,39 @@ Product.create(
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845398/YonexNanoray_brrqou.jpg")
 
 Product.create(
+  reference_number: 1444,
+  name: 'Babolat S4',
+  sub_header: "For quick shots",
+  description: "Designed by Tiki Wang",
+  price: 99.99,
+  stock: 20,
+  category: rackets,
+  brand: 'Babolat',
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1476450414/badmintonracketbabolat_w0knjf.jpg")
+
+Product.create(
+  reference_number: 1445,
+  name: 'Artengo Ca3',
+  sub_header: "Sharp priced racket, when quality doesn't matter",
+  description: "Usefull for on the camping!",
+  price: 5.99,
+  stock: 10,
+  category: rackets,
+  brand: 'Artengo',
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1476450484/Artengo_basic_bqpq2h.jpg")
+
+Product.create(
+  reference_number: 1446,
+  name: 'Forza Power',
+  sub_header: "Heavy, but powerfull racket",
+  description: "For allround competition players",
+  price: 108.99,
+  stock: 10,
+  category: rackets,
+  brand: 'Forza',
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1476450400/Forzabadmintonracket_nbptoq.jpg")
+
+Product.create(
   reference_number: 2440,
   name: 'Feather Shuttles',
   sub_header: "Nice looking feather shuttles",

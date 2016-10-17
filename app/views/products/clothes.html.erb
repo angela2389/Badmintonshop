@@ -3,7 +3,6 @@
 <h2>Products</h2>
   <div class="productoverview">
     <% @products.each do |product| %>
-    <% if product.category.name === "Clothes" %>
         <div class = "product">
           <h3><%= product.name %></h3><br>
           <%= product.sub_header %> <br>
@@ -21,7 +20,6 @@
           <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </div>
-      <% end %>
     <% end %>
   </div>
 <br>

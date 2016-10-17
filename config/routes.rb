@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :categories
   get 'products/search' => "products#search"
+  get 'products/racketbrandfilter' => "products#racketbrandfilter"
   get 'products/rackets' => "products#rackets"
   get 'products/shuttles' => "products#shuttles"
   get 'products/clothes' => "products#clothes"

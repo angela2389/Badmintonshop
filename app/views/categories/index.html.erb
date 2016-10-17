@@ -1,38 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<div class="categories">
-  <div class = "rackets">
-    <%= link_to products_rackets_path do %>
-    <div class = "racketsLink">
-      <h1> Rackets </h1>
-    </div>
-  </div>
-  <% end %>
-  <div class = "shuttles">
-    <%= link_to products_shuttles_path do %>
-    <div class = "shuttlesLink">
-      <h1> Shuttles </h1>
-    </div>
-    <% end %>
-  </div>
+<div class="allitems">
 </div>
-<div class="categories">
-  <div class = "clothes">
-    <%= link_to products_clothes_path do %>
-      <div class = "clothesLink">
-        <h1> Clothes </h1>
+
+<div class="products">
+  <div class="categories">
+    <div class = "rackets">
+      <%= link_to products_rackets_path do %>
+      <div class = "racketsLink">
+        <h1> Rackets </h1>
       </div>
+    </div>
     <% end %>
-  </div>
-</div><br>
-<div class="popular">
-  <h1> Most popular products </h1>
-    <% @products.each do |product| %>
-      <%= link_to(product) do %>
-      <div class="popularproducts">
-        <p><%= product.name %></p>
-        <p><%= image_tag product.image.to_s %></p>
+    <div class = "shuttles">
+      <%= link_to products_shuttles_path do %>
+      <div class = "shuttlesLink">
+        <h1> Shuttles </h1>
       </div>
       <% end %>
-    <% end %>
+    </div>
+  </div>
+  <div class="categories">
+    <div class = "clothes">
+      <%= link_to products_clothes_path do %>
+        <div class = "clothesLink">
+          <h1> Clothes </h1>
+        </div>
+      <% end %>
+    </div>
+  </div><br>
+  <div class="popular">
+    <h1> Most popular products </h1>
+      <% @products.each do |product| %>
+        <%= link_to(product) do %>
+        <div class="popularproducts">
+          <p><%= product.name %></p>
+          <p><%= image_tag product.image.to_s %></p>
+        </div>
+        <% end %>
+      <% end %>
+  </div>
 </div>

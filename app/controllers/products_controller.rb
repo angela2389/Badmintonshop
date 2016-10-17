@@ -7,20 +7,25 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def racketbrandfilter
+    @products = Product.joins(:category).where(:brand => params[:filter], :categories  => {name: 'Rackets'})
+  end
+
   def search
     @products = Product.where(["lower(name) LIKE ?","%#{params[:search].downcase}%"])
   end
 
   def rackets
-    @products = Product.all
+    @products = Product.joins(:category).where(categories: {name: 'Rackets'})
+    # @products = Product.where(brand: params[:brand])
   end
 
   def shuttles
-    @products = Product.all
+    @products = Product.joins(:category).where(categories: {name: 'Shuttles'})
   end
 
   def clothes
-    @products = Product.all
+    @products = Product.joins(:category).where(categories: {name: 'Clothes'})
   end
 
   # GET /products/1
