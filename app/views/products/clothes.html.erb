@@ -7,11 +7,14 @@
     <br>
     <b><p> Filter by brand </p></b>
     <%=form_tag products_brandfilter_path,{:method=>'get', class:"navbar-form navbar-left", role:"filter"}  do%>
-    <p> <%= check_box_tag("filter[]", 9) %> Carlton </p>
-      <%= hidden_field_tag 'category', "Clothes" %>
+      <% @brands.each do |brand| %>
+      <p> <%= check_box_tag("filter[]", brand.id) %> <%= brand.name%> </p>
+        <%= hidden_field_tag 'category', "Clothes" %>
+      <% end %>
       <%= submit_tag 'Filter', class:"btn btn-default " %>
     <% end %>
   </div>
+
 
   <div class="productoverview">
         <% @products.each do |product| %>

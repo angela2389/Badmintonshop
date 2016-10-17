@@ -115,8 +115,8 @@ input[type="submit"]{
   text-align: center;
 }
 
-footer {
- position: absolute;
+.footer {
+ bottom: 0;
  font-size: 12px;
- margin-top: 10px;
+ text-align: center;
 }

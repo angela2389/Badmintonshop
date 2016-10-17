@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
 
   def brandfilter
     @products = Product.joins(:category).where(:brand => params[:filter], :categories  => {name: params[:category]})
+    @brands = Brand.all
   end
 
   def search
@@ -17,14 +18,17 @@ class ProductsController < ApplicationController
 
   def rackets
     @products = Product.joins(:category).where(categories: {name: 'Rackets'})
+    @brands = Brand.all
   end
 
   def shuttles
     @products = Product.joins(:category).where(categories: {name: 'Shuttles'})
+    @brands = Brand.all
   end
 
   def clothes
     @products = Product.joins(:category).where(categories: {name: 'Clothes'})
+    @brands = Brand.all
   end
 
   # GET /products/1
