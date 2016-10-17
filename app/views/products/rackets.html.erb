@@ -6,11 +6,13 @@
   <div class="filter">
     <br>
     <b><p> Filter by brand </p></b>
-    <%=form_tag products_racketbrandfilter_path,{:method=>'get', class:"navbar-form navbar-left", role:"filter"}  do%>
-      <p> <%= check_box_tag("filter[]", "Yonex") %> Yonex </p>
-      <p> <%= check_box_tag("filter[]", "Forza") %> Forza </p>
-      <p> <%= check_box_tag("filter[]", "Babolat") %> Babolat </p>
-      <%= submit_tag 'Filter', class:"btn btn-default " %>
+    <%=form_tag products_brandfilter_path,{:method=>'get', class:"navbar-form navbar-left", role:"filter"}  do%>
+      <p> <%= check_box_tag("filter[]", 5) %> Yonex </p>
+      <p> <%= check_box_tag("filter[]", 7) %> Forza </p>
+      <p> <%= check_box_tag("filter[]", 6) %> Babolat </p>
+      <p> <%= check_box_tag("filter[]", 8) %> Artengo </p>
+        <%= hidden_field_tag 'category', "Rackets" %>
+          <%= submit_tag 'Filter', class:"btn btn-default " %>
     <% end %>
   </div>
 
@@ -39,5 +41,5 @@
   <% if can? :create, Product %>
     <%= link_to 'New Product', new_product_path %><br>
   <% end %>
-  <%= link_to 'Back', categories_path %>
+  <%= link_to 'Back', root_path %>
 </div>

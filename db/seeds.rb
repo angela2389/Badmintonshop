@@ -10,11 +10,32 @@ Orderitem.delete_all
 Order.delete_all
 User.delete_all
 Product.delete_all
+Brand.delete_all
 Category.delete_all
 
 shuttles = Category.create( name: 'Shuttles')
 rackets = Category.create( name: 'Rackets')
 clothes = Category.create( name: 'Clothes')
+
+yonex = Brand.create(
+name: "Yonex"
+)
+
+babolat = Brand.create(
+name: "Babolat"
+)
+
+forza = Brand.create(
+name: "Forza"
+)
+
+artengo = Brand.create(
+name: "Artengo"
+)
+
+carlton = Brand.create(
+name: "Carlton"
+)
 
 Product.create(
   reference_number: 1441,
@@ -24,7 +45,7 @@ Product.create(
   price: 25.99,
   stock: 10,
   category: rackets,
-  brand: 'Yonex',
+  brand: yonex,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845389/YonexArcSaber_aosbti.jpg")
 
 Product.create(
@@ -35,7 +56,7 @@ Product.create(
   price: 69.99,
   stock: 10,
   category: rackets,
-  brand: 'Yonex',
+  brand: yonex,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845394/YonexMusclePower_ndm3nm.jpg")
 
 Product.create(
@@ -46,7 +67,7 @@ Product.create(
   price: 120.99,
   stock: 10,
   category: rackets,
-  brand: 'Carlton',
+  brand: yonex,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845398/YonexNanoray_brrqou.jpg")
 
 Product.create(
@@ -57,7 +78,7 @@ Product.create(
   price: 99.99,
   stock: 20,
   category: rackets,
-  brand: 'Babolat',
+  brand: babolat,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1476450414/badmintonracketbabolat_w0knjf.jpg")
 
 Product.create(
@@ -68,7 +89,7 @@ Product.create(
   price: 5.99,
   stock: 10,
   category: rackets,
-  brand: 'Artengo',
+  brand: artengo,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1476450484/Artengo_basic_bqpq2h.jpg")
 
 Product.create(
@@ -79,8 +100,8 @@ Product.create(
   price: 108.99,
   stock: 10,
   category: rackets,
-  brand: 'Forza',
-  image: "http://res.cloudinary.com/angela2389/image/upload/v1476450400/Forzabadmintonracket_nbptoq.jpg")
+  brand: forza,
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1476711922/Forzabadmintonracket_nbptoq.jpg")
 
 Product.create(
   reference_number: 2440,
@@ -90,7 +111,7 @@ Product.create(
   price: 25.50,
   stock: 100,
   category: shuttles,
-  brand: 'Yonex',
+  brand: yonex,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845638/yonexshuttles_m75g1j.jpg")
 
 Product.create(
@@ -101,7 +122,7 @@ Product.create(
   price: 19.50,
   stock: 80,
   category: shuttles,
-  brand: 'Carlton',
+  brand: carlton,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845466/carltonshuttles_bk9e1v.jpg")
 
 Product.create(
@@ -112,7 +133,7 @@ Product.create(
   price: 39.99,
   stock: 10,
   category: clothes,
-  brand: 'Carlton',
+  brand: carlton,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845428/femaleshirt_dtunwc.png")
 
 Product.create(
@@ -123,7 +144,7 @@ Product.create(
   price: 39.99,
   stock: 10,
   category: clothes,
-  brand: 'Carlton',
+  brand: carlton,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845380/maleshirt_odzp14.png")
 
 User.create(

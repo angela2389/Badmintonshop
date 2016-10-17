@@ -6,4 +6,8 @@ class CategoriesController < ApplicationController
     @products = Product.joins(:orderitems).group("products.id").order("count(product_id) DESC").limit(5)
   end
 
+  def show
+    @categories = Category.all
+    @products = Product.all
+  end
 end

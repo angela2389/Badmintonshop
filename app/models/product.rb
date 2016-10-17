@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :category
+  belongs_to :brand
   has_many :orderitems
   has_many :orders
 
@@ -15,7 +16,7 @@ class Product < ApplicationRecord
   end
 
   def negative_stock(quantity)
-    if (self.stock - quantity) < 0 
+    if (self.stock - quantity) < 0
       return true
     end
   end
