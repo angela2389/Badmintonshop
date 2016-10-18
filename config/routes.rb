@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # In case of using the user controller:
-  #  devise_for :users, controllers: {
-  #    sessions: 'users/sessions'
-  #  }
- # end
+
+ devise_for :users, :controllers => { :registrations => "my_registrations" }
+
   root 'categories#index'
   resources :orders do
     collection do
