@@ -3,52 +3,72 @@
 <h1>Cart page</h1>
 
 <%= link_to 'Empty the Cart', cart_clear_path %>
-<br><br><br>
+<br><br>
 
 <% total = 0 %>
 
-<table>
-  <tr class="cart">
-    <td>Name</td>
-    <td>Price</td>
-    <td>Quantity</td>
-    <td>Total price</td>
-    <td>Stock</td>
-  </tr>
-
-  <% @cart.each do | id, quantity | %>
-    <% product = Product.find_by_id(id) %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= number_to_currency(product.price, :unit => "€") %></td>
-    <td><%= link_to "-", remove_cart_path(product) %>
-    <%= quantity %>
-    <% if quantity < product.stock %>
-    <%= link_to "+", add_cart_path(product) %>
-    <% end %> </td>
-    <% subtotal = quantity * product.price %>
-    <td><%= number_to_currency(subtotal, :unit => "€") %></td>
-    <td><%= product.stock %></td>
-  </tr>
-    <%total = total + subtotal%>
-  <% end %>
-  </table>
-  <br>
-  <% if total < 50 %>
-  <%= "Shipping charges: €3.50 (items above €50.00 are free of shippingcharges)"%>
-  <% total= total + 3.50 %>
+<table class="table">
+  <thead>
+    <tr class="success">
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total price</th>
+      <th>Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.each do | id, quantity | %>
+      <% product = Product.find_by_id(id) %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= number_to_currency(product.price, :unit => "€") %></td>
+      <td><%= link_to "-", remove_cart_path(product) %>
+      <%= quantity %>
+      <% if quantity < product.stock %>
+        <%= link_to "+", add_cart_path(product) %>
+      <% end %> </td>
+        <% subtotal = quantity * product.price %>
+      <td><%= number_to_currency(subtotal, :unit => "€") %></td>
+      <td><%= product.stock %></td>
+    </tr>
+      <%total = total + subtotal%>
+    <% end %>
+    <% if total < 50 %>
+      <tr>
+        <td>Shipping charges</td>
+        <td></td>
+        <td></td>
+        <td>€3.50</td>
+        <td></td>
+      </tr>
+      <% total= total + 3.50 %>
+    <% end %>
+    <b><tr class="active">
+      <td> Total </td>
+      <td></td>
+      <td></td>
+      <td><%= number_to_currency(total, :unit => "€") %> </td>
+      <td></td>
+    </tr></b>
+  </tbody>
+</table>
+  <% if total < 53.50 %>
+    <%= "Shipping charges: €3.50 (items above €50.00 are free of shipping charges)"%>
   <% else %>
-  <%= "No shipping charges"%>
+    <%= "No shipping charges"%>
   <% end %>
-  <br><br>
+    <br><br>
+  <div class="checkout">
 
-  <b>Total shopping cart:<%= number_to_currency(total, :unit => "€") %></b>
+    <div class="btn btn-default"><%= link_to "Continue Shopping", categories_path %></div>
 
-  <p><%= link_to "Continue Shopping", categories_path %></p><br>
+  <% if total > 3.50 %>
+    <% if user_signed_in? %>
+      <div class="btn btn-default"><%= link_to 'Checkout', new_order_path %></div>
+    <% else %>
+      <%= link_to "Log in to checkout", new_user_session_path %>
+    <% end %>
+  <% end %>
   </div>
-
-  <% if user_signed_in?%>
-    <div class= "checkout"><%= link_to 'Checkout', new_order_path %></div>
-  <% else %>
-    <%= link_to "Log in to checkout", new_user_session_path %>
-  <% end %>
+</div>

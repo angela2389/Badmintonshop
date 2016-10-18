@@ -84,18 +84,13 @@ a {
 }
 
 .checkout {
-  margin-top: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-  width: 150px;
-  background-image:url(http://res.cloudinary.com/angela2389/image/upload/v1473930986/button_aqodw9.png);
-  padding: 5px;
   text-align: center;
 }
 
 .checkout a {
   color: #000000;
   font-size: 15px;
+  text-decoration: none;
 }
 
 .shoppingcart input[type="submit"]{
@@ -119,4 +114,9 @@ input[type="submit"]{
  bottom: 0;
  font-size: 12px;
  text-align: center;
+ margin-top: 10px;
+}
+
+.btn-default {
+  background-color: #cee2ef;
 }

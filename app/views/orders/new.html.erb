@@ -3,40 +3,56 @@
 
 <% total = 0 %>
 
-<table>
-  <tr class="cart">
-    <td>Name</td>
-    <td>Price</td>
-    <td>Quantity</td>
-    <td>Total price</td>
-  </tr>
+<table class="table">
+  <thead>
+    <tr class="success">
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total price</th>
+      <th>Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.each do | id, quantity | %>
+      <% product = Product.find_by_id(id) %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= number_to_currency(product.price, :unit => "€") %></td>
+      <td><%= link_to "-", remove_cart_path(product) %>
+      <%= quantity %>
+      <% if quantity < product.stock %>
+        <%= link_to "+", add_cart_path(product) %>
+      <% end %> </td>
+        <% subtotal = quantity * product.price %>
+      <td><%= number_to_currency(subtotal, :unit => "€") %></td>
+      <td><%= product.stock %></td>
+    </tr>
+      <%total = total + subtotal%>
+    <% end %>
+    <% if total < 50 %>
+      <tr>
+        <td>Shipping charges</td>
+        <td></td>
+        <td></td>
+        <td>€3.50</td>
+        <td></td>
+      </tr>
+      <% total= total + 3.50 %>
+    <% end %>
+    <b><tr class="active">
+      <td> Total </td>
+      <td></td>
+      <td></td>
+      <td><%= number_to_currency(total, :unit => "€") %> </td>
+      <td></td>
+    </tr></b>
+  </tbody>
+</table>
 
-  <% @cart.each do | id, quantity | %>
-    <% product = Product.find_by_id(id) %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= number_to_currency(product.price, :unit => "€") %></td>
-    <td><%= quantity %> </td>
-    <% subtotal = quantity * product.price %>
-    <td><%=number_to_currency(subtotal, :unit => "€") %></td>
-  </tr>
-    <%total = total + subtotal%>
-  <% end %>
-  </table>
-  <br>
-  <% if total < 50 %>
-  <%= "Shipping charges: €3.50"%>
-  <% total= total + 3.50 %>
-  <% else %>
-  <%= "Free of shipping charges"%>
-  <% end %>
-
-  <br><br>
-  <b>Total shopping cart: <%= number_to_currency(total, :unit => "€") %></b>
-  <br><br>
 <div class="form">
   <%= form_for(@order) do |f| %>
     <%= render "#{@order.current_step}_step", :f => f %><br>
-    <%= f.submit "Continue" %>
+    <%= f.submit "Continue", class:"btn btn-default" %>
 <!-- <%= f.submit "Back", :name => "previous_button" unless @order.first_step? %>  <% end %> -->
 </div>

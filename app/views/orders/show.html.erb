@@ -2,19 +2,34 @@
 
 <h3>Order id: <%= @order.id %></h3>
 
-<h4> Ordered items: </h4>
+<div class="ordered-items">
+  <h4> Ordered items: </h4>
 
-<table>
-  <b><th> Product </th>
-  <th> Quantity </th>
-  <th> Price </th></b>
+  <table class="table">
+    <thead>
+      <tr class="success">
+        <th> Product </th>
+        <th> Quantity </th>
+        <th> Price </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @order.orderitems %>
+      <tr>
+        <td> Shipping charges </td>
+        <td> </td>
+        <td> <%= format_shippingcharges(@order) %> </td>
+      </tr>
+      <b><tr class="active">
+        <td> Total price </td>
+        <td> </td>
+        <td> <%= format_orderprice(@order) %> </td>
+      <tr></b>
+    </tbody>
+  </table>
 
-<%= render @order.orderitems %>
-</table>
-<br>
-<p> Shipping charges <%= format_shippingcharges(@order) %> </p>
-<p><b> Total price <%= format_orderprice(@order) %> </b></p><br>
-<p> Status: <%= @order.status %> </p>
-<p> Comments: <%= @order.comments %></p>
-<p> Payment method: <%= @order.paymentmethod %></p>
-<p> Delivery address: <%= @order.deliveryaddress %></p>
+  <p> Status: <%= @order.status %> </p>
+  <p> Comments: <%= @order.comments %></p>
+  <p> Payment method: <%= @order.paymentmethod %></p>
+  <p> Delivery address: <%= @order.deliveryaddress %></p>
+</div>
