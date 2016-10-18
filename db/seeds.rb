@@ -17,27 +17,13 @@ shuttles = Category.create( name: 'Shuttles')
 rackets = Category.create( name: 'Rackets')
 clothes = Category.create( name: 'Clothes')
 
-yonex = Brand.create(
-name: "Yonex"
-)
+yonex = Brand.create(name: "Yonex")
+babolat = Brand.create(name: "Babolat")
+forza = Brand.create(name: "Forza")
+artengo = Brand.create(name: "Artengo")
+carlton = Brand.create(name: "Carlton")
 
-babolat = Brand.create(
-name: "Babolat"
-)
-
-forza = Brand.create(
-name: "Forza"
-)
-
-artengo = Brand.create(
-name: "Artengo"
-)
-
-carlton = Brand.create(
-name: "Carlton"
-)
-
-Product.create(
+product1 = Product.create(
   reference_number: 1441,
   name: 'Yonex X1',
   sub_header: "For beginners",
@@ -48,7 +34,7 @@ Product.create(
   brand: yonex,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845389/YonexArcSaber_aosbti.jpg")
 
-Product.create(
+product2 = Product.create(
   reference_number: 1442,
   name: 'Yonex Strong',
   sub_header: "For experienced players",
@@ -127,7 +113,7 @@ Product.create(
 
 Product.create(
   reference_number: 3440,
-  name: 'Blue shirt',
+  name: 'Carlton shirt for women',
   sub_header: "Nice looking shirt",
   description: "One fit all",
   price: 39.99,
@@ -138,7 +124,7 @@ Product.create(
 
 Product.create(
   reference_number: 3441,
-  name: 'White yellow shirt',
+  name: 'Carlton shirt for men',
   sub_header: "Nice looking shirt for men",
   description: "One fit all",
   price: 39.99,
@@ -147,7 +133,18 @@ Product.create(
   brand: carlton,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845380/maleshirt_odzp14.png")
 
-User.create(
+Product.create(
+  reference_number: 3441,
+  name: 'Yonex shirt for men',
+  sub_header: "Looking cool, feeling cool",
+  description: "One fit all",
+  price: 49.99,
+  stock: 10,
+  category: clothes,
+  brand: yonex,
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1476783708/Yonexshirt_dnxqua.jpg")
+
+lydia = User.create(
   first_name: "Lydia",
   last_name: "Vermeer",
   email: "lydiavermeer@gmail.com",
@@ -164,4 +161,26 @@ User.create(
   email: "admin@gmail.com",
   password: "123456",
   admin: true,
+)
+
+order1 = Order.create(
+  user: lydia,
+  deliveryaddress: "Kakelweg 1, 1700BB Medemblik",
+  status: "Shipped",
+  total_price: 121.97,
+  paymentmethod: "Cash on delivery",
+)
+
+Orderitem.create(
+  order: order1,
+  product: product1,
+  quantity: 2,
+  subtotal: 51.98,
+)
+
+Orderitem.create(
+  order: order1,
+  product: product2,
+  quantity: 1,
+  subtotal: 69.99,
 )
