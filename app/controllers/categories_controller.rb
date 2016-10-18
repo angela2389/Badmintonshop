@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @products = Product.joins(:orderitems).group("products.id").order("count(product_id) DESC").limit(5)
+    @products = Product.joins(:orderitems).group("products.id").order("count(product_id) DESC").limit(4)
   end
 
   def show
