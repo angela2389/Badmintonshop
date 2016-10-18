@@ -10,6 +10,8 @@ class Ability
 
     if user.is_admin?
       can :manage, :all
+      can :access, :rails_admin
+      can :dashboard
     elsif user.persisted? # in db, so logged in
       # Can MANAGE (create, read, update, destroy, etc.) own Post
       can :read, Order, user: user

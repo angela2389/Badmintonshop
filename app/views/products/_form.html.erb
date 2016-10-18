@@ -27,7 +27,7 @@
 
   <div class="field">
   <%= f.label :brand %>
-  <%= f.text_field :brand %>
+  <%= f.collection_select :brand_id, Brand.order(:name), :id, :name %>
   </div>
 
   <div class="field">
@@ -50,7 +50,10 @@
   <%= f.number_field :stock %>
   </div>
 
-  <%= f.collection_select :category_id, Category.all, :id, :name %>
+  <div class="field">
+  <%= f.label :category %>
+  <%= f.collection_select :category_id, Category.order(:name), :id, :name %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
