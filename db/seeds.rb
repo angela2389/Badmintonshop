@@ -16,12 +16,17 @@ Category.delete_all
 shuttles = Category.create( name: 'Shuttles')
 rackets = Category.create( name: 'Rackets')
 clothes = Category.create( name: 'Clothes')
+shoes = Category.create( name: 'Shoes')
+bags = Category.create( name: 'Bags')
 
 yonex = Brand.create(name: "Yonex")
 babolat = Brand.create(name: "Babolat")
 forza = Brand.create(name: "Forza")
 artengo = Brand.create(name: "Artengo")
 carlton = Brand.create(name: "Carlton")
+lining = Brand.create(name: 'LI Ning')
+kawasaki = Brand.create(name: 'Kawasaki')
+asics = Brand.create(name: "Asics")
 
 product1 = Product.create(
   reference_number: 1441,
@@ -134,7 +139,7 @@ Product.create(
   image: "http://res.cloudinary.com/angela2389/image/upload/v1473845380/maleshirt_odzp14.png")
 
 Product.create(
-  reference_number: 3441,
+  reference_number: 3442,
   name: 'Yonex shirt for men',
   sub_header: "Looking cool, feeling cool",
   description: "One fit all",
@@ -143,6 +148,61 @@ Product.create(
   category: clothes,
   brand: yonex,
   image: "http://res.cloudinary.com/angela2389/image/upload/v1476783708/Yonexshirt_dnxqua.jpg")
+
+Product.create(
+  reference_number: 4440,
+  name: 'LI Ning Speed',
+  sub_header: "Cushion all around badminton shoe",
+  description: "One fit all",
+  price: 79.99,
+  stock: 10,
+  category: shoes,
+  brand: lining,
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1476867183/badmintonshoe_u8ev9s.jpg")
+
+Product.create(
+  reference_number: 4441,
+  name: 'Asics X10',
+  sub_header: "Strong shoe, very flexible",
+  description: "One fit all",
+  price: 69.99,
+  stock: 10,
+  category: shoes,
+  brand: asics,
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1476867183/badmintonshoeasics_ogclv7.jpg")
+
+Product.create(
+  reference_number: 4441,
+  name: 'Yonex RSpeed',
+  sub_header: "Flexible shoe, for the highest speed",
+  description: "One fit all",
+  price: 69.99,
+  stock: 10,
+  category: shoes,
+  brand: yonex,
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1476867183/badmintonshoe_l5fzeb.jpg")
+
+Product.create(
+  reference_number: 5440,
+  name: 'Yonex Y16 Bag',
+  sub_header: "Soft bag with a lot of space",
+  description: "Can fit 6 rackets, clothes and shoes",
+  price: 70.99,
+  stock: 10,
+  category: bags,
+  brand: yonex,
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1476867183/badmintonbag_qljhjs.jpg")
+
+Product.create(
+  reference_number: 5441,
+  name: 'Kawasaki bag',
+  sub_header: "Strong material, light weight",
+  description: "Cool colors",
+  price: 64.99,
+  stock: 10,
+  category: bags,
+  brand: kawasaki,
+  image: "http://res.cloudinary.com/angela2389/image/upload/v1476867183/badmintonbagka_xl6uz0.jpg")
 
 lydia = User.create(
   first_name: "Lydia",

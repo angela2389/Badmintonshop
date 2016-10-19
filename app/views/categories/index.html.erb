@@ -6,29 +6,44 @@
 <div class="products">
   <div class="categories">
     <div class = "rackets">
-      <%= link_to products_rackets_path do %>
-      <div class = "racketsLink">
+      <%= link_to products_categoryfilter_path(:category => "Rackets") do %>
+      <div class = "racketslink">
         <h1> Rackets </h1>
       </div>
     </div>
     <% end %>
-    <div class = "shuttles">
-      <%= link_to products_shuttles_path do %>
-      <div class = "shuttlesLink">
-        <h1> Shuttles </h1>
+    <div class = "shoes">
+      <%= link_to products_categoryfilter_path(:category => "Shoes") do %>
+      <div class = "shoeslink">
+        <h1> Shoes </h1>
       </div>
       <% end %>
     </div>
   </div>
   <div class="categories">
     <div class = "clothes">
-      <%= link_to products_clothes_path do %>
-        <div class = "clothesLink">
+      <%= link_to products_categoryfilter_path(:category => "Clothes") do %>
+        <div class = "clotheslink">
           <h1> Clothes </h1>
         </div>
       <% end %>
     </div>
-  </div><br>
+    <div class = "shuttles">
+      <%= link_to products_categoryfilter_path(:category => "Shuttles") do %>
+        <div class = "shuttleslink">
+          <h1> Shuttles </h1>
+        </div>
+      <% end %>
+    </div>
+    <div class = "bags">
+      <%= link_to products_categoryfilter_path(:category => "Bags") do %>
+        <div class = "bagslink">
+          <h1> Bags </h1>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <br>
   <div class="popular">
     <h1> Most popular products </h1>
       <% @products.each do |product| %>

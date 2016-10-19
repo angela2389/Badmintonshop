@@ -7,6 +7,12 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def categoryfilter
+    @products = Product.joins(:category).where(categories: {name: params[:category]})
+    @category = Category.find_by(name: params[:category])
+    @brands = Brand.joins(:products).group("brands.id").where(:products => {category: @category})
+  end
+
   def brandfilter
     @products = Product.joins(:category).where(:brand => params[:filter], :categories  => {name: params[:category]})
     @category = Category.find_by(name: params[:category])
@@ -15,24 +21,6 @@ class ProductsController < ApplicationController
 
   def search
     @products = Product.where(["lower(name) LIKE ?","%#{params[:search].downcase}%"])
-  end
-
-  def rackets
-    @products = Product.joins(:category).where(categories: {name: 'Rackets'})
-    @category = Category.find_by(name: 'Rackets')
-    @brands = Brand.joins(:products).group("brands.id").where(:products => {category: @category})
-  end
-
-  def shuttles
-    @products = Product.joins(:category).where(categories: {name: 'Shuttles'})
-    @category = Category.find_by(name: 'Shuttles')
-    @brands = Brand.joins(:products).group("brands.id").where(:products => {category: @category})
-  end
-
-  def clothes
-    @products = Product.joins(:category).where(categories: {name: 'Clothes'})
-    @category = Category.find_by(name: 'Clothes')
-    @brands = Brand.joins(:products).group("brands.id").where(:products => {category: @category})
   end
 
   # GET /products/1

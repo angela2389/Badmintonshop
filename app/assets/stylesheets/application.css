@@ -58,16 +58,32 @@ a {
     border: 1px solid #e5e7e8;
     border-radius: 2px;
     flex: 1;
-    width: 300px;
-    max-height: 500px;
+    width: 320px;
+    height: 500px;
     margin: 1px;
     text-align: center;
     align-items: center;
+    vertical-align: text-top;
 }
 
-.product img{
-    max-width: 250px;
-    max-height: 250px;
+.productimg {
+    height: 251px;
+    width: 251px;
+    display: inline-block;
+    position: relative;
+}
+
+.productimg img{
+   max-height: 100%;
+   max-width: 100%;
+   width: auto;
+   height: auto;
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   margin: auto;
 }
 
 .showproduct{

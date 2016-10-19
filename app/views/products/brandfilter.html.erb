@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @category.name %></h2>
-
 <div class="productspage">
   <div class="filter">
     <br>
     <b><p> Filter by brand </p></b>
-    <%=form_tag products_brandfilter_path,{:method=>'get', class:"navbar-form navbar-left", role:"filter"}  do%>
+    <%= form_tag products_brandfilter_path,{:method=>'get', class:"navbar-form navbar-left", role:"filter"}  do %>
       <% @brands.each do |brand| %>
-      <p> <%= check_box_tag("filter[]", brand.id) %> <%= brand.name%> </p>
-      <%= hidden_field_tag 'category', params[:category] %>
+      <p> <%= check_box_tag("filter[]", brand.id) %> <%= brand.name %> </p>
+        <%= hidden_field_tag 'category', params[:category] %>
       <% end %>
       <%= submit_tag 'Filter', class:"btn btn-default " %>
     <% end %>
@@ -17,10 +15,12 @@
 
   <div class="productoverview">
         <% @products.each do |product| %>
-          <div class = "product">
+          <div class ="product">
             <h3><%= product.name %></h3><br>
             <%= product.sub_header %> <br>
-            <%= image_tag product.image.to_s %><br>
+            <div class= "productimg">
+              <%= image_tag product.image.to_s %>
+            </div>
             <p class= "price"><%= format_price(product) %></p>
             <p> Stock: <%= product.stock %> </p>
             <% if product.in_stock? %>

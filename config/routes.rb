@@ -12,10 +12,8 @@ Rails.application.routes.draw do
 
   resources :categories
   get 'products/search' => "products#search"
+  get 'products/categoryfilter' => "products#categoryfilter"
   get 'products/brandfilter' => "products#brandfilter"
-  get 'products/rackets' => "products#rackets"
-  get 'products/shuttles' => "products#shuttles"
-  get 'products/clothes' => "products#clothes"
   resources :products do
     collection do
       get :edit_multiple
