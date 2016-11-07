@@ -19,7 +19,7 @@
   <% if user_signed_in? %>
     <% if current_user.is_admin? %>
       <%= link_to 'Edit', edit_product_path(@product) %> |
-      <%= link_to 'Back', products_rackets_path %>
+      <%= link_to 'Back', products_categoryfilter_path(:category => @product.category.name) %>
     <% end %>
   <% end %>
 </div>
