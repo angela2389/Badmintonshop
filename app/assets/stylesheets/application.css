@@ -24,6 +24,19 @@ a {
   padding: 1px;
 }
 
+.navbar-default {
+    background-color: #004e8e;
+    border-color: #006099;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #87c4ed;
+}
+
 .topheader {
   padding: 1px;
   text-align: center;
