@@ -13,13 +13,17 @@
   flex-grow: 2;
 }
 
+.rackets a {
+  text-decoration: none;
+}
+
 .racketslink {
   margin-right: 3px;
   border: 1px solid #00253a;
   border-radius: 3px;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473838773/badmintonrackets2_kzhqgt.jpg);
   background-size: cover;
-  height: 280px;
+  height: 350px;
   color: #ffffff;
   text-align: center;
   font-size: 30px;
@@ -29,13 +33,17 @@
   flex-grow: 1;
 }
 
+.shuttles a {
+  text-decoration: none;
+}
+
 .shuttleslink {
   margin-right: 5px;
   border: 1px solid #00253a;
   border-radius: 3px;
   text-align: center;
   color: #ffffff;
-  height: 280px;
+  height: 350px;
   font-size: 30px;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473839254/shuttles_wv8lff.jpg);
   background-size: cover;
@@ -45,12 +53,16 @@
   flex-grow: 1;
 }
 
+.clothes a {
+  text-decoration: none;
+}
+
 .clotheslink {
   border: 1px solid #00253a;
   border-radius: 3px;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1473839807/clothespeter_ku2rh4.jpg);
   background-size: cover;
-  height: 280px;
+  height: 350px;
   text-align: center;
   color: #ffffff;
   font-size: 30px;
@@ -61,12 +73,16 @@
   flex-grow: 1;
 }
 
+.bags a {
+  text-decoration: none;
+}
+
 .shoeslink {
   border: 1px solid #00253a;
   border-radius: 3px;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1478517356/sportshoes_nnpl8a.jpg);
   background-size: cover;
-  height: 280px;
+  height: 350px;
   text-align: center;
   color: #000000;
   font-size: 30px;
@@ -77,12 +93,16 @@
   flex-grow: 1;
 }
 
+.shoes a {
+  text-decoration: none;
+}
+
 .bagslink {
   border: 1px solid #00253a;
   border-radius: 3px;
   background-image: url(http://res.cloudinary.com/angela2389/image/upload/v1476872245/badmintonbags_ubhnrl.jpg);
   background-size: cover;
-  height: 280px;
+  height: 350px;
   text-align: center;
   color: #ffffff;
   font-size: 30px;
